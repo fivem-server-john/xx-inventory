@@ -1,0 +1,15 @@
+import { InventoryGrid } from "./inventory-grid"
+
+interface RightInventoryProps {
+    placement: "top" | "bottom";
+}
+
+export const RightInventory = (props: RightInventoryProps) => {
+    let placementClass = props.placement;
+
+    return (
+        <div className={"inventory-grid-wrapper right-inventory " + placementClass} >
+            <InventoryGrid slotAmount={30} type="small" />
+        </div>
+    )
+}

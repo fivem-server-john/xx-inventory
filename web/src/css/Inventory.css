@@ -1,0 +1,89 @@
+.inventory-wrapper {
+  position: absolute;
+  width: 120vh;
+  height: 70vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+}
+.inventory-wrapper .inventory-grid-wrapper {
+  background-color: green;
+  position: absolute;
+}
+.inventory-wrapper .inventory-grid-wrapper.character-inventory {
+  width: 10vh;
+  height: 60vh;
+  left: 0vh;
+}
+.inventory-wrapper .inventory-grid-wrapper.player-inventory {
+  width: 50vh;
+  height: 60vh;
+  right: 56vh;
+  background-color: yellowgreen;
+}
+.inventory-wrapper .inventory-grid-wrapper.right-inventory {
+  width: 50vh;
+  height: 26vh;
+  right: 1vh;
+}
+.inventory-wrapper .inventory-grid-wrapper.right-inventory.top {
+  top: 0vh;
+}
+.inventory-wrapper .inventory-grid-wrapper.right-inventory.bottom {
+  bottom: 10vh;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper {
+  height: 100%;
+  width: 100%;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info {
+  position: absolute;
+  width: 100%;
+  height: 5vh;
+  background-color: purple;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info .name {
+  position: absolute;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.main {
+  height: 50vh;
+  bottom: 0vh;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.small {
+  height: 20vh;
+  bottom: 0vh;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.side {
+  height: 50vh;
+  bottom: 0vh;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot {
+  position: relative;
+  width: 9vh;
+  height: 9vh;
+  margin-left: 0.5vh;
+  margin-right: 0.5vh;
+  margin-bottom: 1vh;
+  background-color: blue;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot .background-icon {
+  height: 100%;
+  width: 100%;
+}
+.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot .background-icon i {
+  color: white;
+  font-size: 5vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,129 @@
+.inventory-wrapper { //Main inventory wrapper
+    position: absolute;
+    width: 120vh;
+    height: 70vh;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background-color: red;
+
+    .inventory-grid-wrapper {
+        background-color: green; 
+        position: absolute;
+
+        &.character-inventory {
+           
+            width: 10vh;
+            height: 60vh;
+
+            left: 0vh;
+        }
+    
+        &.player-inventory {
+           
+            width: 50vh;
+            height: 60vh;
+
+            right: 56vh;
+
+            background-color: yellowgreen;
+        }
+
+        &.right-inventory {
+          
+            width: 50vh;
+            height: 26vh;
+
+            right: 1vh;
+
+            &.top {
+                top: 0vh;
+            }
+
+            &.bottom {
+                bottom: 10vh;
+            }
+        }
+        
+        .wrapper {
+            height: 100%;
+            width: 100%;
+
+            .inventory-info {
+                position: absolute;
+
+                width: 100%;
+                height: 5vh;
+
+                background-color: purple;
+
+                .name {
+                    position: absolute;
+                }
+            }
+            
+            .inventory-grid {
+                position: absolute;
+                display: flex;
+                flex-wrap: wrap;
+        
+                overflow: auto;
+
+                width: 100%;
+                height: 100%;
+
+                &.main {
+                    height: 50vh;
+                    bottom: 0vh;
+                }
+
+                &.small {
+                    height: 20vh;
+                    bottom: 0vh;
+                }
+
+                &.side {
+                    height: 50vh;
+                    bottom: 0vh;
+                }
+    
+                .inventory-slot {
+                    position: relative;
+    
+                    width: 9vh;
+                    height: 9vh;
+    
+                    margin-left: 0.5vh;
+                    margin-right: 0.5vh;
+                    margin-bottom: 1vh;
+    
+                    background-color: blue;
+
+                    .background-icon {
+                        height: 100%;
+                        width: 100%;
+
+                        i {
+                            color: white;
+                            font-size: 5vh;
+
+                            position: absolute;
+
+                            top: 50%;
+                            left: 50%;
+
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        
+    }
+
+}
