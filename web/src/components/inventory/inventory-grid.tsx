@@ -15,6 +15,10 @@ export const InventoryGrid = (props: InventoryGridProps) => {
         return (
             <MainGrid slotAmount={props.slotAmount}/>
         )
+    } else if (props.type === "medium") {
+        return (
+            <MediumGrid slotAmount={props.slotAmount}/>
+        )
     } else if (props.type === "small") {
         return (
             <SmallGrid slotAmount={props.slotAmount}/>
@@ -28,14 +32,62 @@ export const InventoryGrid = (props: InventoryGridProps) => {
     return null;
 }
 
+interface GridInfoProps {
+    label: string;
+    weight: number;
+    maxWeight: number;
+}
+
+function GridInfo(props: GridInfoProps) {
+
+    function getWeightProcentage() {
+        return (props.weight / props.maxWeight) * 100 + "%";
+    }
+
+    return (
+        <div className="inventory-info">
+            <p className="name">{props.label}</p>
+            <p className="weight">{props.weight}kg / {props.maxWeight}kg</p>
+            <div className="weight-bar">
+                <div className="cover" style={{width: getWeightProcentage()}}>
+                    <div className="color"></div>
+                </div>
+                
+            </div>
+        </div>
+    )
+}
+
 function MainGrid(props: Grid) {
     return (
         <div className="wrapper">
-            <div className="inventory-info">
-                <p className="name">Player</p>
-            </div>
+            <GridInfo label="Spiller" weight={150.0} maxWeight={150.00}/>
             <div className="inventory-grid main">
                 
+                {/* Hot bar */}
+                <InventorySlot icon="fa-solid fa-1"/>
+                <InventorySlot icon="fa-solid fa-2"/>
+                <InventorySlot icon="fa-solid fa-3"/>
+                <InventorySlot icon="fa-solid fa-4"/>
+                <InventorySlot icon="fa-solid fa-5"/>
+
+                {Array.from(Array(props.slotAmount - 5).keys()).map((slot) => {
+                    return (
+                        <InventorySlot />
+                    )
+                })}
+                  
+            </div>
+        </div>
+    )
+}
+
+function MediumGrid(props: Grid) {
+    return (
+        <div className="wrapper">
+            <GridInfo label="Handskerum" weight={37.5} maxWeight={150.00}/>
+            <div className="inventory-grid medium">
+            
                 {Array.from(Array(props.slotAmount).keys()).map((slot) => {
                     return (
                         <InventorySlot />
@@ -50,19 +102,10 @@ function MainGrid(props: Grid) {
 function SmallGrid(props: Grid) {
     return (
         <div className="wrapper">
-            <div className="inventory-info">
-                <p className="name">Ground</p>
-            </div>
+            <GridInfo label="Jorden" weight={37.5} maxWeight={1000.00}/>
             <div className="inventory-grid small">
-                
-                {/* Hot bar */}
-                <InventorySlot />
-                <InventorySlot />
-                <InventorySlot />
-                <InventorySlot />
-                <InventorySlot />
-
-                {Array.from(Array(props.slotAmount - 5).keys()).map((slot) => {
+            
+                {Array.from(Array(props.slotAmount).keys()).map((slot) => {
                     return (
                         <InventorySlot />
                     )
@@ -78,9 +121,6 @@ function SmallGrid(props: Grid) {
 function SideGrid() {
     return (
         <div className="wrapper">
-            <div className="inventory-info">
-                <p className="name">Player</p>
-            </div>
             <div className="inventory-grid side">
                 
                 <InventorySlot icon="fa-solid fa-hat-cowboy" />
@@ -88,6 +128,7 @@ function SideGrid() {
                 <InventorySlot icon="fa-solid fa-paw" />
                 <InventorySlot icon="fa-solid fa-shield-halved" />
                 <InventorySlot icon="fa-solid fa-mobile-screen-button" />
+                <InventorySlot icon="fa-solid fa-walkie-talkie" />
 
             </div>
         </div>

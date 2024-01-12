@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNuiEvent } from "../../hooks/useNuiEvent";
 import "../../css/Inventory.css";
 import { PlayerInventory } from "./player-inventory";
 import { RightInventory } from "./right-inventory";
 import { CharacterInventory } from "./character-inventory";
+import { ContextMenu } from "../context/contextMenu";
+
 
 export const Inventory: React.FC = () => {
     const [inventoryVisible, setInventoryVisible] = useState(true);
@@ -15,10 +17,14 @@ export const Inventory: React.FC = () => {
 
     return (
         <div className="inventory-wrapper">
-            <CharacterInventory />
-            <PlayerInventory />
-            <RightInventory placement = {"top"} />
-            <RightInventory placement = {"bottom"} />
+            <ContextMenu>
+
+                <CharacterInventory />
+                <PlayerInventory />
+                <RightInventory placement = {"top"} />
+                <RightInventory placement = {"bottom"} />  
+
+            </ContextMenu>
         </div>
     )
 }

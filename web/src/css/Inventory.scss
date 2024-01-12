@@ -8,43 +8,45 @@
 
     transform: translate(-50%, -50%);
 
-    background-color: red;
+    // background-color: red;
 
     .inventory-grid-wrapper {
-        background-color: green; 
+        // background-color: green; 
         position: absolute;
 
         &.character-inventory {
            
             width: 10vh;
-            height: 60vh;
+            height: 66vh;
 
             left: 0vh;
         }
     
         &.player-inventory {
            
-            width: 50vh;
-            height: 60vh;
+            width: 50.8vh;
+            height: 66vh;
 
-            right: 56vh;
+            right: 55.2vh;
 
-            background-color: yellowgreen;
+            // background-color: yellowgreen;
         }
 
         &.right-inventory {
           
-            width: 50vh;
-            height: 26vh;
+            width: 50.8vh;
+            
 
             right: 1vh;
 
             &.top {
                 top: 0vh;
+                height: 36vh;
             }
 
             &.bottom {
-                bottom: 10vh;
+                bottom: 4vh;
+                height: 26vh;
             }
         }
         
@@ -56,12 +58,61 @@
                 position: absolute;
 
                 width: 100%;
-                height: 5vh;
+                height: 5.9vh;
 
-                background-color: purple;
+               
 
                 .name {
                     position: absolute;
+                    top: -1.6vh;
+                    left: 0.5vh;
+
+                    font-size: 2.2vh;
+                    font-weight: bold;
+
+                    color: var(--blue1);
+                }
+
+                .weight {
+                    position: absolute;
+                    top: 1.5vh;
+                    left: 0.5vh;
+                    
+                    font-size: 1.5vh;
+
+                    color: var(--white);
+                }
+
+                .weight-bar {
+                    position: absolute;
+
+                    bottom: 0vh;
+                    left: 0.5vh;
+
+                    width: 49vh;
+                    height: 0.8vh;
+                    
+                   
+
+                    .cover {
+                        position: absolute;
+                        width: 100%; //Weight bar
+                        height: 100%;
+                        overflow: hidden;
+                        
+                        transition: all 0.5s;
+
+                        .color {
+                            width: 49vh;
+                            height: 100%;
+                            position: absolute;
+                            left: 0vh;
+                            background: linear-gradient(to right, rgb(0, 170, 0), rgb(200, 0, 0));
+                            border-radius: 1vh;
+                        }
+                    }
+                    
+                    
                 }
             }
             
@@ -76,7 +127,12 @@
                 height: 100%;
 
                 &.main {
-                    height: 50vh;
+                    height: 60vh;
+                    bottom: 0vh;
+                }
+
+                &.medium {
+                    height: 30vh;
                     bottom: 0vh;
                 }
 
@@ -86,7 +142,7 @@
                 }
 
                 &.side {
-                    height: 50vh;
+                    height: 60vh;
                     bottom: 0vh;
                 }
     
@@ -98,17 +154,20 @@
     
                     margin-left: 0.5vh;
                     margin-right: 0.5vh;
-                    margin-bottom: 1vh;
+                    margin-top: 0.5vh;
+                    margin-bottom: 0.5vh;
     
-                    background-color: blue;
+                    background: radial-gradient(circle, var(--dark1) 10%, #000000 200%);
+                    border-radius: 0.4vh;
+                    
 
                     .background-icon {
                         height: 100%;
                         width: 100%;
 
                         i {
-                            color: white;
-                            font-size: 5vh;
+                            color: var(--dark2);
+                            font-size: 4vh;
 
                             position: absolute;
 
@@ -118,6 +177,30 @@
                             transform: translate(-50%, -50%);
                         }
                     }
+
+                    .hotbar-icon {
+                        position: absolute;
+                        top: 0vh;
+                        left: 0vh;
+                        height: 2vh;
+                        width: 1.2vh;
+
+                        background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);   
+                        
+                        .num {
+                            position: absolute;
+                            top: -1.1vh;
+                            left: 0.2vh;
+                            color: var(--blue1);
+                            font-size: 1.3vh;
+                        }
+                    }
+
+                    &:hover {
+                        background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
+                        outline: 0.4vh solid var(--blueOutline); 
+    
+                    }
                 }
             }
         }
@@ -126,4 +209,172 @@
         
     }
 
+    .context-tooltip {
+        position: absolute;
+        
+        width: 28vh;
+        height: 8vh;
+
+        z-index: 1000 !important;
+
+        transform: none;
+
+
+        .slot-desc {
+            position: relative;
+
+            background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+
+            width: 100%;
+            height: fit-content;
+            border-radius: 0.5vh;
+
+            margin-top: -1vh;
+
+            .wrapper {
+                position: relative;
+                
+                height: fit-content;
+
+                .text {
+                    position: relative;
+                    color: var(--white);
+                    font-size: 1.6vh;
+
+                    padding-left: 1.5vh;
+                    padding-right: 1.5vh;
+                    padding-top: 2vh;
+                    padding-bottom: 2vh;
+
+                }
+            }
+        }
+    }
+
+
+
+    .context-actions {
+        position: absolute;
+        
+        width: 28vh;
+        height: 8vh;
+
+        z-index: 1000 !important;
+
+        transform: none;
+
+        .actions {
+            position: absolute;
+
+            height: fit-content;
+            width: 100%;
+
+
+            .slot-action {
+                position: relative;
+
+                margin-bottom: 0.5vh;
+
+                border-radius: 0.5vh;
+
+                height: 5vh;
+                width: 100%;
+
+                background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+
+                .icon {
+                    position: absolute;
+
+                    top: 50%;
+                    left: 1.5vh;
+                    transform: translateY(-50%);
+
+                    font-size: 3vh;
+
+                    color: var(--blue1);
+                }
+
+                .label {
+                    position: absolute;
+
+                    top: -0.7vh;
+                    left: 4vh;
+                    
+                    font-size: 1.6vh;
+
+                    color: var(--white);
+                
+                }
+
+                &:hover {
+                    background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
+                    outline: 0.4vh solid var(--blueOutline); 
+                    cursor: pointer;
+                }
+            }
+        }
+
+        
+    }
+
+
+    .slot-info {
+        position: relative;
+        
+        background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+        
+        width: 100%;
+        height: 8vh;
+        border-radius: 0.5vh;
+
+        margin-bottom: 0.5vh;
+
+        .label {
+            color: var(--white);
+            position: absolute;
+
+            top: -0.2vh;
+            left: 1.5vh;
+
+            font-size: 1.6vh;
+        }
+
+        .extra {
+            position: absolute;
+
+            top: 4vh;
+            left: 1.5vh;
+
+            width: 12vh;
+            height: 2vh;
+
+
+            .element {
+                position: relative;
+
+                display: inline-flex;
+
+                margin-right: 0.5vh;
+
+                height: 100%;
+                width: fit-content;
+                
+                border-radius: 0.3vh;
+
+                background: radial-gradient(circle, rgba(40, 40, 40, 0.65) 20%, rgba(#242424, 0.65) 100%);
+
+                .text {
+                    color: var(--white);
+                    position: relative;
+
+                    top: -0.5vh;
+                    margin-left: 0.5vh;
+                    margin-right: 0.5vh;
+
+                    font-size: 1vh;
+
+                }
+            }
+        }
+    }
 }
