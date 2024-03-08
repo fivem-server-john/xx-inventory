@@ -1,7 +1,9 @@
 import { useParent } from "../context/contextMenuProvider";
+import { InventoryItem } from "./InventoryItem";
 
 interface InventorySlotProps {
     icon?: string;
+    item: InventoryItem | null;
 }
 
 export const InventorySlot = (props: InventorySlotProps) => {
@@ -23,9 +25,6 @@ export const InventorySlot = (props: InventorySlotProps) => {
 
     function handleContextMenu(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         event.preventDefault();
-        let position: number[] = [event.clientX, event.clientY];
-        console.log('right clicked')
-        console.log(position)
 
         onSlotRightClicked(event);
     }

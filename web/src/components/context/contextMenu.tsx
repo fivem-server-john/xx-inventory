@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ContextMenuProvider } from "./contextMenuProvider";
+import "../../css/Context.css";
+import { GetOffset } from "./contextOffset";
 
 export interface ContextMenuData {
     visible: boolean;
@@ -16,15 +18,14 @@ export const ContextMenu = (props: ContextMenuProps) => {
     const [actionsVisible, setActionsVisible] = useState(false);
     const [tooltipVisible, setTooltipVisible] = useState(true);
 
-    const [position, setPosition] = useState({ x: 550, y: 400 });
+    const [position, setPosition] = useState({ x: 0, y: 0 });
 
     function handleSlotRightClicked(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         event.preventDefault();
-        let position: number[] = [event.pageX, event.pageY];
-
-        console.log(position);
+      
+        let position: number[] = [event.clientX, event.clientY];
         
-        setPosition({ x: position[0], y: position[1] });
+        setPosition({ x: position[0], y: position[1]});
         setActionsVisible(true);
         setTooltipVisible(false);
     }
@@ -112,15 +113,17 @@ const SlotActions = (props: SlotActionsProps) => {
 
     function getPositionStyle() {
         //TODO: Make this work on all resolutions
-        let newPosition = { x: 0, y: 0 };
-        newPosition.x = props.position.x - 340;
-        newPosition.y = props.position.y - 130;
+        let newPosition = { x: props.position.x, y: props.position.y };
 
-        console.log(window.innerWidth)
-        console.log(window.innerHeight)
+        let offset = GetOffset(window.innerWidth, window.innerHeight);
+        
+        newPosition.x += offset.left;
+        newPosition.y += offset.top;
+        
 
         return {
-            transform: `translate(${newPosition.x}px, ${newPosition.y}px)`
+            left: `${newPosition.x}px`,
+            top: `${newPosition.y}px`
         }
     }
 
@@ -145,15 +148,17 @@ const SlotTooltip = (props: SlotTooltipProps) => {
     
     function getPositionStyle() {
         //TODO: Make this work on all resolutions
-        let newPosition = { x: 0, y: 0 };
-        newPosition.x = props.position.x - 340;
-        newPosition.y = props.position.y - 130;
+        let newPosition = { x: props.position.x, y: props.position.y };
 
-        console.log(window.innerWidth)
-        console.log(window.innerHeight)
+        let offset = GetOffset(window.innerWidth, window.innerHeight);
+        
+        newPosition.x += offset.left;
+        newPosition.y += offset.top;
+        
 
         return {
-            transform: `translate(${newPosition.x}px, ${newPosition.y}px)`
+            left: `${newPosition.x}px`,
+            top: `${newPosition.y}px`
         }
     }
 

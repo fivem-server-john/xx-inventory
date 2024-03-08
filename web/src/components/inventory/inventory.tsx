@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useNuiEvent } from "../../hooks/useNuiEvent";
 import "../../css/Inventory.css";
 import { PlayerInventory } from "./player-inventory";
@@ -14,6 +14,8 @@ export const Inventory: React.FC = () => {
     useNuiEvent<false>('closeInventory', () => {
         setInventoryVisible(false);
     });
+
+    if (!inventoryVisible) return null;
 
     return (
         <div className="inventory-wrapper">

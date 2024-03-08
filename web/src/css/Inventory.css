@@ -1,7 +1,7 @@
 .inventory-wrapper {
   position: absolute;
-  width: 120vh;
-  height: 70vh;
+  width: 1200px;
+  height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -10,26 +10,26 @@
   position: absolute;
 }
 .inventory-wrapper .inventory-grid-wrapper.character-inventory {
-  width: 10vh;
-  height: 66vh;
-  left: 0vh;
+  width: 100px;
+  height: 660px;
+  left: 0px;
 }
 .inventory-wrapper .inventory-grid-wrapper.player-inventory {
-  width: 50.8vh;
-  height: 66vh;
-  right: 55.2vh;
+  width: 508px;
+  height: 660px;
+  right: 550.2px;
 }
 .inventory-wrapper .inventory-grid-wrapper.right-inventory {
-  width: 50.8vh;
-  right: 1vh;
+  width: 509px;
+  right: 0px;
 }
 .inventory-wrapper .inventory-grid-wrapper.right-inventory.top {
-  top: 0vh;
-  height: 36vh;
+  top: 0px;
+  height: 360px;
 }
 .inventory-wrapper .inventory-grid-wrapper.right-inventory.bottom {
-  bottom: 4vh;
-  height: 26vh;
+  bottom: 40px;
+  height: 260px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper {
   height: 100%;
@@ -38,29 +38,29 @@
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info {
   position: absolute;
   width: 100%;
-  height: 5.9vh;
+  height: 60px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info .name {
   position: absolute;
-  top: -1.6vh;
-  left: 0.5vh;
-  font-size: 2.2vh;
+  top: -16px;
+  left: 5px;
+  font-size: 22px;
   font-weight: bold;
   color: var(--blue1);
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info .weight {
   position: absolute;
-  top: 1.5vh;
-  left: 0.5vh;
-  font-size: 1.5vh;
+  top: 15px;
+  left: 5px;
+  font-size: 15px;
   color: var(--white);
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info .weight-bar {
   position: absolute;
-  bottom: 0vh;
-  left: 0.5vh;
-  width: 49vh;
-  height: 0.8vh;
+  bottom: 0px;
+  left: 5px;
+  width: 490px;
+  height: 8px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info .weight-bar .cover {
   position: absolute;
@@ -70,12 +70,12 @@
   transition: all 0.5s;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-info .weight-bar .cover .color {
-  width: 49vh;
+  width: 490px;
   height: 100%;
   position: absolute;
-  left: 0vh;
-  background: linear-gradient(to right, rgb(0, 170, 0), rgb(200, 0, 0));
-  border-radius: 1vh;
+  left: 0px;
+  background: var(--weight-bar);
+  border-radius: 10px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid {
   position: absolute;
@@ -86,31 +86,31 @@
   height: 100%;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.main {
-  height: 60vh;
-  bottom: 0vh;
+  height: 600px;
+  bottom: 0px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.medium {
-  height: 30vh;
-  bottom: 0vh;
+  height: 300px;
+  bottom: 0px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.small {
-  height: 20vh;
-  bottom: 0vh;
+  height: 200px;
+  bottom: 0px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid.side {
-  height: 60vh;
-  bottom: 0vh;
+  height: 600px;
+  bottom: 0px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot {
   position: relative;
-  width: 9vh;
-  height: 9vh;
-  margin-left: 0.5vh;
-  margin-right: 0.5vh;
-  margin-top: 0.5vh;
-  margin-bottom: 0.5vh;
-  background: radial-gradient(circle, var(--dark1) 10%, #000000 200%);
-  border-radius: 0.4vh;
+  width: 90px;
+  height: 90px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: var(--inventory-slot-color);
+  border-radius: 4px;
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot .background-icon {
   height: 100%;
@@ -118,139 +118,54 @@
 }
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot .background-icon i {
   color: var(--dark2);
-  font-size: 4vh;
+  font-size: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot .hotbar-icon {
-  position: absolute;
-  top: 0vh;
-  left: 0vh;
-  height: 2vh;
-  width: 1.2vh;
-  background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
-}
-.inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot .hotbar-icon .num {
-  position: absolute;
-  top: -1.1vh;
-  left: 0.2vh;
-  color: var(--blue1);
-  font-size: 1.3vh;
-}
 .inventory-wrapper .inventory-grid-wrapper .wrapper .inventory-grid .inventory-slot:hover {
-  background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
-  outline: 0.4vh solid var(--blueOutline);
-}
-.inventory-wrapper .context-tooltip {
-  position: absolute;
-  width: 28vh;
-  height: 8vh;
-  z-index: 1000 !important;
-  transform: none;
-}
-.inventory-wrapper .context-tooltip .slot-desc {
-  position: relative;
-  background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-  border-radius: 0.5vh;
-  margin-top: -1vh;
-}
-.inventory-wrapper .context-tooltip .slot-desc .wrapper {
-  position: relative;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.inventory-wrapper .context-tooltip .slot-desc .wrapper .text {
-  position: relative;
-  color: var(--white);
-  font-size: 1.6vh;
-  padding-left: 1.5vh;
-  padding-right: 1.5vh;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-}
-.inventory-wrapper .context-actions {
-  position: absolute;
-  width: 28vh;
-  height: 8vh;
-  z-index: 1000 !important;
-  transform: none;
-}
-.inventory-wrapper .context-actions .actions {
-  position: absolute;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: 100%;
-}
-.inventory-wrapper .context-actions .actions .slot-action {
-  position: relative;
-  margin-bottom: 0.5vh;
-  border-radius: 0.5vh;
-  height: 5vh;
-  width: 100%;
-  background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
-}
-.inventory-wrapper .context-actions .actions .slot-action .icon {
-  position: absolute;
-  top: 50%;
-  left: 1.5vh;
-  transform: translateY(-50%);
-  font-size: 3vh;
-  color: var(--blue1);
-}
-.inventory-wrapper .context-actions .actions .slot-action .label {
-  position: absolute;
-  top: -0.7vh;
-  left: 4vh;
-  font-size: 1.6vh;
-  color: var(--white);
-}
-.inventory-wrapper .context-actions .actions .slot-action:hover {
-  background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
-  outline: 0.4vh solid var(--blueOutline);
+  background: var(--inventory-slot-hover);
+  outline: 4px solid var(--blueOutline);
   cursor: pointer;
 }
 .inventory-wrapper .slot-info {
   position: relative;
-  background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+  background: var(--inventory-slot-context-info);
   width: 100%;
-  height: 8vh;
-  border-radius: 0.5vh;
-  margin-bottom: 0.5vh;
+  height: 80px;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 .inventory-wrapper .slot-info .label {
   color: var(--white);
   position: absolute;
-  top: -0.2vh;
-  left: 1.5vh;
-  font-size: 1.6vh;
+  top: -2px;
+  left: 15px;
+  font-size: 16px;
 }
 .inventory-wrapper .slot-info .extra {
   position: absolute;
-  top: 4vh;
-  left: 1.5vh;
-  width: 12vh;
-  height: 2vh;
+  top: 40px;
+  left: 15px;
+  width: 120px;
+  height: 20px;
 }
 .inventory-wrapper .slot-info .extra .element {
   position: relative;
   display: inline-flex;
-  margin-right: 0.5vh;
+  margin-right: 5px;
   height: 100%;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 0.3vh;
-  background: radial-gradient(circle, rgba(40, 40, 40, 0.65) 20%, rgba(36, 36, 36, 0.65) 100%);
+  border-radius: 3px;
+  background: var(--inventory-slot-context-extra);
 }
 .inventory-wrapper .slot-info .extra .element .text {
   color: var(--white);
   position: relative;
-  top: -0.5vh;
-  margin-left: 0.5vh;
-  margin-right: 0.5vh;
-  font-size: 1vh;
+  top: -6px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 10px;
 }

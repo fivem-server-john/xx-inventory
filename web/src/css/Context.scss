@@ -1,0 +1,101 @@
+.context-tooltip {
+    position: absolute;
+    
+    width: 280px;
+    height: 80px;
+
+    z-index: 1000 !important;
+
+    .slot-desc {
+        position: relative;
+
+        background: var(--inventory-slot-context-action);
+
+        width: 100%;
+        height: fit-content;
+        border-radius: 5.0px;
+
+        margin-top: -5px;
+
+        .wrapper {
+            position: relative;
+            
+            height: fit-content;
+
+            .text {
+                position: relative;
+                color: var(--white);
+                font-size: 10.6px;
+
+                padding-left: 10.5px;
+                padding-right: 10.5px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+            }
+        }
+    }
+}
+
+
+
+.context-actions {
+    position: absolute;
+    
+    width: 280px;
+    height: 80px;
+
+    z-index: 1000 !important;
+
+    .actions {
+        position: absolute;
+
+        height: fit-content;
+        width: 100%;
+
+        .slot-action {
+            position: relative;
+
+            margin-bottom: 5.0px;
+
+            border-radius: 5.0px;
+
+            height: 50px;
+            width: 100%;
+
+            background: var(--inventory-slot-context-action);
+
+            .icon {
+                position: absolute;
+
+                top: 50%;
+                left: 10.5px;
+                transform: translateY(-50%);
+
+                font-size: 30px;
+
+                color: var(--blue1);
+            }
+
+            .label {
+                position: absolute;
+
+                top: -00.7px;
+                left: 40px;
+                
+                font-size: 10.6px;
+
+                color: var(--white);
+            
+            }
+
+            &:hover {
+                background: var(--inventory-slot-context-action-hover);
+                outline: 2px solid var(--blueOutline); 
+                cursor: pointer;
+            }
+        }
+    }
+
+    
+}

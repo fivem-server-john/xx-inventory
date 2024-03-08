@@ -1,0 +1,70 @@
+.context-tooltip {
+  position: absolute;
+  width: 280px;
+  height: 80px;
+  z-index: 1000 !important;
+}
+.context-tooltip .slot-desc {
+  position: relative;
+  background: var(--inventory-slot-context-action);
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  margin-top: -5px;
+}
+.context-tooltip .slot-desc .wrapper {
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.context-tooltip .slot-desc .wrapper .text {
+  position: relative;
+  color: var(--white);
+  font-size: 10.6px;
+  padding-left: 10.5px;
+  padding-right: 10.5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.context-actions {
+  position: absolute;
+  width: 280px;
+  height: 80px;
+  z-index: 1000 !important;
+}
+.context-actions .actions {
+  position: absolute;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+.context-actions .actions .slot-action {
+  position: relative;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  background: var(--inventory-slot-context-action);
+}
+.context-actions .actions .slot-action .icon {
+  position: absolute;
+  top: 50%;
+  left: 10.5px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: var(--blue1);
+}
+.context-actions .actions .slot-action .label {
+  position: absolute;
+  top: -0.7px;
+  left: 40px;
+  font-size: 10.6px;
+  color: var(--white);
+}
+.context-actions .actions .slot-action:hover {
+  background: var(--inventory-slot-context-action-hover);
+  outline: 2px solid var(--blueOutline);
+  cursor: pointer;
+}

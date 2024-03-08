@@ -65,15 +65,15 @@ function MainGrid(props: Grid) {
             <div className="inventory-grid main">
                 
                 {/* Hot bar */}
-                <InventorySlot icon="fa-solid fa-1"/>
-                <InventorySlot icon="fa-solid fa-2"/>
-                <InventorySlot icon="fa-solid fa-3"/>
-                <InventorySlot icon="fa-solid fa-4"/>
-                <InventorySlot icon="fa-solid fa-5"/>
+                <InventorySlot icon="fa-solid fa-1" item = {null}/>
+                <InventorySlot icon="fa-solid fa-2" item = {null}/>
+                <InventorySlot icon="fa-solid fa-3" item = {null}/>
+                <InventorySlot icon="fa-solid fa-4" item = {null}/>
+                <InventorySlot icon="fa-solid fa-5" item = {null}/>
 
                 {Array.from(Array(props.slotAmount - 5).keys()).map((slot) => {
                     return (
-                        <InventorySlot />
+                        <InventorySlot item = {null}/>
                     )
                 })}
                   
@@ -90,7 +90,7 @@ function MediumGrid(props: Grid) {
             
                 {Array.from(Array(props.slotAmount).keys()).map((slot) => {
                     return (
-                        <InventorySlot />
+                        <InventorySlot item = {null}/>
                     )
                 })}
                   
@@ -107,7 +107,7 @@ function SmallGrid(props: Grid) {
             
                 {Array.from(Array(props.slotAmount).keys()).map((slot) => {
                     return (
-                        <InventorySlot />
+                        <InventorySlot item = {null}/>
                     )
                 })}
                   
@@ -123,12 +123,12 @@ function SideGrid() {
         <div className="wrapper">
             <div className="inventory-grid side">
                 
-                <InventorySlot icon="fa-solid fa-hat-cowboy" />
-                <InventorySlot icon="fa-solid fa-mask" />
-                <InventorySlot icon="fa-solid fa-paw" />
-                <InventorySlot icon="fa-solid fa-shield-halved" />
-                <InventorySlot icon="fa-solid fa-mobile-screen-button" />
-                <InventorySlot icon="fa-solid fa-walkie-talkie" />
+                <InventorySlot icon="fa-solid fa-hat-cowboy" item = {null}/>
+                <InventorySlot icon="fa-solid fa-mask" item = {null}/>
+                <InventorySlot icon="fa-solid fa-paw" item = {null}/>
+                <InventorySlot icon="fa-solid fa-shield-halved" item = {null}/>
+                <InventorySlot icon="fa-solid fa-mobile-screen-button" item = {null}/>
+                <InventorySlot icon="fa-solid fa-walkie-talkie" item = {null}/>
 
             </div>
         </div>

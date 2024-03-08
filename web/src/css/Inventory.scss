@@ -1,7 +1,7 @@
 .inventory-wrapper { //Main inventory wrapper
     position: absolute;
-    width: 120vh;
-    height: 70vh;
+    width: 1200px;
+    height: 700px;
 
     top: 50%;
     left: 50%;
@@ -16,37 +16,36 @@
 
         &.character-inventory {
            
-            width: 10vh;
-            height: 66vh;
+            width: 100px;
+            height: 660px;
 
-            left: 0vh;
+            left: 00px;
         }
     
         &.player-inventory {
            
-            width: 50.8vh;
-            height: 66vh;
+            width: 508.0px;
+            height: 660px;
 
-            right: 55.2vh;
+            right: 550.2px;
 
             // background-color: yellowgreen;
         }
 
         &.right-inventory {
           
-            width: 50.8vh;
+            width: 509.0px;
             
-
-            right: 1vh;
+            right: 0px;
 
             &.top {
-                top: 0vh;
-                height: 36vh;
+                top: 00px;
+                height: 360px;
             }
 
             &.bottom {
-                bottom: 4vh;
-                height: 26vh;
+                bottom: 40px;
+                height: 260px;
             }
         }
         
@@ -58,16 +57,16 @@
                 position: absolute;
 
                 width: 100%;
-                height: 5.9vh;
+                height: 60px;
 
                
 
                 .name {
                     position: absolute;
-                    top: -1.6vh;
-                    left: 0.5vh;
+                    top: -16px;
+                    left: 5.0px;
 
-                    font-size: 2.2vh;
+                    font-size: 22.0px;
                     font-weight: bold;
 
                     color: var(--blue1);
@@ -75,10 +74,10 @@
 
                 .weight {
                     position: absolute;
-                    top: 1.5vh;
-                    left: 0.5vh;
+                    top: 15.0px;
+                    left: 5.0px;
                     
-                    font-size: 1.5vh;
+                    font-size: 15.0px;
 
                     color: var(--white);
                 }
@@ -86,11 +85,11 @@
                 .weight-bar {
                     position: absolute;
 
-                    bottom: 0vh;
-                    left: 0.5vh;
+                    bottom: 0px;
+                    left: 5.0px;
 
-                    width: 49vh;
-                    height: 0.8vh;
+                    width: 490px;
+                    height: 8.0px;
                     
                    
 
@@ -103,12 +102,12 @@
                         transition: all 0.5s;
 
                         .color {
-                            width: 49vh;
+                            width: 490px;
                             height: 100%;
                             position: absolute;
-                            left: 0vh;
-                            background: linear-gradient(to right, rgb(0, 170, 0), rgb(200, 0, 0));
-                            border-radius: 1vh;
+                            left: 00px;
+                            background: var(--weight-bar);
+                            border-radius: 10px;
                         }
                     }
                     
@@ -127,38 +126,38 @@
                 height: 100%;
 
                 &.main {
-                    height: 60vh;
-                    bottom: 0vh;
+                    height: 600px;
+                    bottom: 00px;
                 }
 
                 &.medium {
-                    height: 30vh;
-                    bottom: 0vh;
+                    height: 300px;
+                    bottom: 00px;
                 }
 
                 &.small {
-                    height: 20vh;
-                    bottom: 0vh;
+                    height: 200px;
+                    bottom: 00px;
                 }
 
                 &.side {
-                    height: 60vh;
-                    bottom: 0vh;
+                    height: 600px;
+                    bottom: 00px;
                 }
     
                 .inventory-slot {
                     position: relative;
     
-                    width: 9vh;
-                    height: 9vh;
+                    width: 90px;
+                    height: 90px;
     
-                    margin-left: 0.5vh;
-                    margin-right: 0.5vh;
-                    margin-top: 0.5vh;
-                    margin-bottom: 0.5vh;
+                    margin-left: 5.0px;
+                    margin-right: 5.0px;
+                    margin-top: 5.0px;
+                    margin-bottom: 5.0px;
     
-                    background: radial-gradient(circle, var(--dark1) 10%, #000000 200%);
-                    border-radius: 0.4vh;
+                    background: var(--inventory-slot-color);
+                    border-radius: 4.0px;
                     
 
                     .background-icon {
@@ -167,7 +166,7 @@
 
                         i {
                             color: var(--dark2);
-                            font-size: 4vh;
+                            font-size: 40px;
 
                             position: absolute;
 
@@ -178,28 +177,11 @@
                         }
                     }
 
-                    .hotbar-icon {
-                        position: absolute;
-                        top: 0vh;
-                        left: 0vh;
-                        height: 2vh;
-                        width: 1.2vh;
-
-                        background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);   
-                        
-                        .num {
-                            position: absolute;
-                            top: -1.1vh;
-                            left: 0.2vh;
-                            color: var(--blue1);
-                            font-size: 1.3vh;
-                        }
-                    }
 
                     &:hover {
-                        background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
-                        outline: 0.4vh solid var(--blueOutline); 
-    
+                        background: var(--inventory-slot-hover);
+                        outline: 4.0px solid var(--blueOutline); 
+                        cursor: pointer;
                     }
                 }
             }
@@ -208,145 +190,36 @@
         
         
     }
-
-    .context-tooltip {
-        position: absolute;
-        
-        width: 28vh;
-        height: 8vh;
-
-        z-index: 1000 !important;
-
-        transform: none;
-
-
-        .slot-desc {
-            position: relative;
-
-            background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
-
-            width: 100%;
-            height: fit-content;
-            border-radius: 0.5vh;
-
-            margin-top: -1vh;
-
-            .wrapper {
-                position: relative;
-                
-                height: fit-content;
-
-                .text {
-                    position: relative;
-                    color: var(--white);
-                    font-size: 1.6vh;
-
-                    padding-left: 1.5vh;
-                    padding-right: 1.5vh;
-                    padding-top: 2vh;
-                    padding-bottom: 2vh;
-
-                }
-            }
-        }
-    }
-
-
-
-    .context-actions {
-        position: absolute;
-        
-        width: 28vh;
-        height: 8vh;
-
-        z-index: 1000 !important;
-
-        transform: none;
-
-        .actions {
-            position: absolute;
-
-            height: fit-content;
-            width: 100%;
-
-
-            .slot-action {
-                position: relative;
-
-                margin-bottom: 0.5vh;
-
-                border-radius: 0.5vh;
-
-                height: 5vh;
-                width: 100%;
-
-                background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
-
-                .icon {
-                    position: absolute;
-
-                    top: 50%;
-                    left: 1.5vh;
-                    transform: translateY(-50%);
-
-                    font-size: 3vh;
-
-                    color: var(--blue1);
-                }
-
-                .label {
-                    position: absolute;
-
-                    top: -0.7vh;
-                    left: 4vh;
-                    
-                    font-size: 1.6vh;
-
-                    color: var(--white);
-                
-                }
-
-                &:hover {
-                    background: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
-                    outline: 0.4vh solid var(--blueOutline); 
-                    cursor: pointer;
-                }
-            }
-        }
-
-        
-    }
-
 
     .slot-info {
         position: relative;
         
-        background: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+        background: var(--inventory-slot-context-info);
         
         width: 100%;
-        height: 8vh;
-        border-radius: 0.5vh;
+        height: 80px;
+        border-radius: 5.0px;
 
-        margin-bottom: 0.5vh;
+        margin-bottom: 5.0px;
 
         .label {
             color: var(--white);
             position: absolute;
 
-            top: -0.2vh;
-            left: 1.5vh;
+            top: -2.0px;
+            left: 15px;
 
-            font-size: 1.6vh;
+            font-size: 16px;
         }
 
         .extra {
             position: absolute;
 
-            top: 4vh;
-            left: 1.5vh;
+            top: 40px;
+            left: 15px;
 
-            width: 12vh;
-            height: 2vh;
+            width: 120px;
+            height: 20px;
 
 
             .element {
@@ -354,24 +227,24 @@
 
                 display: inline-flex;
 
-                margin-right: 0.5vh;
+                margin-right: 5.0px;
 
                 height: 100%;
                 width: fit-content;
                 
-                border-radius: 0.3vh;
+                border-radius: 3.0px;
 
-                background: radial-gradient(circle, rgba(40, 40, 40, 0.65) 20%, rgba(#242424, 0.65) 100%);
+                background: var(--inventory-slot-context-extra);
 
                 .text {
                     color: var(--white);
                     position: relative;
 
-                    top: -0.5vh;
-                    margin-left: 0.5vh;
-                    margin-right: 0.5vh;
+                    top: -6.0px;
+                    margin-left: 5.0px;
+                    margin-right: 5.0px;
 
-                    font-size: 1vh;
+                    font-size: 10px;
 
                 }
             }

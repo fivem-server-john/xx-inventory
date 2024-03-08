@@ -9,8 +9,13 @@
   --blue2: rgb(22, 54, 102);
   --blue3: rgb(20, 44, 82);
   --blueOutline: rgb(41, 84, 148);
-  --red: rgb(150, 0, 0);
-  --green: rgb(5, 94, 5);
+  --inventory-slot-color: radial-gradient(circle, var(--dark1) 10%, #000000 200%);
+  --inventory-slot-hover: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
+  --inventory-slot-context-info: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+  --inventory-slot-context-action: radial-gradient(ellipse, rgba(80, 80, 80, 0.85) 30%, rgba(41, 41, 41, 0.85) 100%);
+  --inventory-slot-context-action-hover: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
+  --inventory-slot-context-extra: radial-gradient(circle, rgba(40, 40, 40, 0.65) 20%, rgba(36, 36, 36, 0.65) 100%);
+  --weight-bar: linear-gradient(to right,rgb(0, 170, 0), rgb(200, 0, 0));
   font-family: "Roboto", sans-serif;
 }
 *.not-pressable:hover {
@@ -21,8 +26,18 @@
   width: 0.7vh;
 }
 
+::-webkit-scrollbar-track {
+  background: rgba(41, 41, 41, 0.85);
+}
+
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--white);
+  background: rgba(80, 80, 80, 0.85);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 input[type=number]::-webkit-inner-spin-button,
