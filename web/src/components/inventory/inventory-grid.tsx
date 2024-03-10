@@ -1,3 +1,4 @@
+import { testItem } from "./InventoryItem";
 import { InventorySlot } from "./inventory-slot";
 
 interface InventoryGridProps {
@@ -65,7 +66,7 @@ function MainGrid(props: Grid) {
             <div className="inventory-grid main">
                 
                 {/* Hot bar */}
-                <InventorySlot icon="fa-solid fa-1" item = {null}/>
+                <InventorySlot icon="fa-solid fa-1" item = {testItem}/>
                 <InventorySlot icon="fa-solid fa-2" item = {null}/>
                 <InventorySlot icon="fa-solid fa-3" item = {null}/>
                 <InventorySlot icon="fa-solid fa-4" item = {null}/>

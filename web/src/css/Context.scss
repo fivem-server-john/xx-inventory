@@ -1,7 +1,7 @@
 .context-tooltip {
     position: absolute;
     
-    width: 280px;
+    width: 28vh;
     height: 80px;
 
     z-index: 1000 !important;
@@ -42,8 +42,8 @@
 .context-actions {
     position: absolute;
     
-    width: 280px;
-    height: 80px;
+    width: 30vh;
+    height: 8vh;
 
     z-index: 1000 !important;
 
@@ -56,11 +56,11 @@
         .slot-action {
             position: relative;
 
-            margin-bottom: 5.0px;
+            margin-bottom: 0.6vh;
 
-            border-radius: 5.0px;
+            border-radius: 0.6vh;
 
-            height: 50px;
+            height: 5.5vh;
             width: 100%;
 
             background: var(--inventory-slot-context-action);
@@ -69,10 +69,10 @@
                 position: absolute;
 
                 top: 50%;
-                left: 10.5px;
+                left: 1.3vh;
                 transform: translateY(-50%);
 
-                font-size: 30px;
+                font-size: 3.2vh;
 
                 color: var(--blue1);
             }
@@ -80,10 +80,10 @@
             .label {
                 position: absolute;
 
-                top: -00.7px;
-                left: 40px;
+                top: -0.55vh;
+                left: 4.2vh;
                 
-                font-size: 10.6px;
+                font-size: 1.5vh;
 
                 color: var(--white);
             
@@ -91,7 +91,7 @@
 
             &:hover {
                 background: var(--inventory-slot-context-action-hover);
-                outline: 2px solid var(--blueOutline); 
+                outline: 0.25vh solid var(--blueOutline); 
                 cursor: pointer;
             }
         }

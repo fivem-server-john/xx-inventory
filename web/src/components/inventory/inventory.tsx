@@ -23,8 +23,14 @@ export const Inventory: React.FC = () => {
 
                 <CharacterInventory />
                 <PlayerInventory />
-                <RightInventory placement = {"top"} />
-                <RightInventory placement = {"bottom"} />  
+
+                <div className="right-inventories">
+
+                    <RightInventory type = {"medium"} />
+                    
+                    <RightInventory type = {"small"} isLast = {true} />  
+                </div>
+
 
             </ContextMenu>
         </div>

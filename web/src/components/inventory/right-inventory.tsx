@@ -1,16 +1,18 @@
 import { InventoryGrid } from "./inventory-grid"
 
 interface RightInventoryProps {
-    placement: "top" | "bottom";
+    type: "medium" | "small";
+    isLast?: boolean;
 }
 
 export const RightInventory = (props: RightInventoryProps) => {
-    let placementClass = props.placement;
-    let type = placementClass === "top" ? "medium" : "small";
+    let size = props.type;
 
+    let lastClass = props.isLast ? " last" : "";
+    
     return (
-        <div className={"inventory-grid-wrapper right-inventory " + placementClass} >
-            <InventoryGrid slotAmount={30} type={type} />
+        <div className={"inventory-grid-wrapper right-inventory " + size + lastClass} >
+            <InventoryGrid slotAmount={30} type={size} />
         </div>
     )
 }

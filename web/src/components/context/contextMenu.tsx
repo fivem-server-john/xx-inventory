@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ContextMenuProvider } from "./contextMenuProvider";
 import "../../css/Context.css";
 import { GetOffset } from "./contextOffset";
+import { InventoryItem } from "../inventory/InventoryItem";
 
 export interface ContextMenuData {
     visible: boolean;
@@ -12,11 +13,10 @@ interface ContextMenuProps {
     children: any[];
 }
 
-
-
 export const ContextMenu = (props: ContextMenuProps) => {
     const [actionsVisible, setActionsVisible] = useState(false);
     const [tooltipVisible, setTooltipVisible] = useState(true);
+    const [currentItem, setCurrentItem] = useState<InventoryItem | null>(null);
 
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -30,8 +30,9 @@ export const ContextMenu = (props: ContextMenuProps) => {
         setTooltipVisible(false);
     }
 
-    function handleMouseEnteredSlot(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    function handleMouseEnteredSlot(event: React.MouseEvent<HTMLDivElement, MouseEvent>, item: InventoryItem | null) {
         setTooltipVisible(true);
+        setCurrentItem(item);
     }
 
     function handleMouseMovedInSlot(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -49,7 +50,7 @@ export const ContextMenu = (props: ContextMenuProps) => {
 
     return (
         <ContextMenuProvider value = {{onSlotRightClicked: handleSlotRightClicked, onMouseEnter: handleMouseEnteredSlot, onMouseMove: handleMouseMovedInSlot, onMouseLeave: handleMouseLeftSlot}}>
-            <ContextMenuItem showActions = {actionsVisible} tooltip = {tooltipVisible} position={position} />
+            <ContextMenuItem showActions = {actionsVisible} tooltip = {tooltipVisible} position={position} currentItem={currentItem}/>
             {props.children}
         </ContextMenuProvider>
     )
@@ -59,35 +60,45 @@ interface ContextMenuItemProps {
     showActions: boolean;
     tooltip: boolean;
     position: { x: number, y: number };
+    currentItem: InventoryItem | null;
 }
 
 const ContextMenuItem = (props: ContextMenuItemProps) => {
 
+    if (props.currentItem == null) return null;
+
     if (props.showActions) {
         return (
-            <SlotActions position={props.position} />
+            <SlotActions position={props.position} currentItem = {props.currentItem}/>
         )
     }
 
     if (props.tooltip) {
         return (
-            <SlotTooltip position={props.position} />
+            <SlotTooltip position={props.position} currentItem={props.currentItem} />
         )
     }
 
     return null;
 }
 
-function SlotInfo() {
+interface SlotInfoProps {
+    item: InventoryItem | null;
+}
+
+function SlotInfo(props: SlotInfoProps) {
+
+    if (!props.item) return null;
+
     return (
         <div className="slot-info">
-            <p className="label">Burger</p>
+            <p className="label">{props.item.label}</p>
             <div className="extra">
                 <div className="element">
-                    <p className="text"><i className="fa-solid fa-weight-hanging"></i> 5.5kg</p>
+                    <p className="text"><i className="fa-solid fa-weight-hanging"></i> 5.5kg</p> {/* Weight */}
                 </div>
                 <div className="element">
-                    <p className="text"><i className="fa-solid fa-screwdriver-wrench"></i> 100</p>
+                    <p className="text"><i className="fa-solid fa-screwdriver-wrench"></i> {props.item.quality}</p> {/* Quality */}
                 </div>
             </div>
         </div>
@@ -107,6 +118,7 @@ function SlotAction() {
 
 interface SlotActionsProps {
     position: { x: number, y: number };
+    currentItem: InventoryItem | null;
 }
 
 const SlotActions = (props: SlotActionsProps) => {
@@ -129,7 +141,7 @@ const SlotActions = (props: SlotActionsProps) => {
 
     return (
         <div className="context-actions" style={getPositionStyle()}>
-            <SlotInfo />
+            <SlotInfo item = {props.currentItem} />
             <div className="actions">
                 <SlotAction />
                 <SlotAction />
@@ -142,6 +154,7 @@ const SlotActions = (props: SlotActionsProps) => {
 
 interface SlotTooltipProps {
     position: { x: number, y: number };
+    currentItem: InventoryItem;
 }
 
 const SlotTooltip = (props: SlotTooltipProps) => {
@@ -164,11 +177,11 @@ const SlotTooltip = (props: SlotTooltipProps) => {
 
     return (
         <div className="context-tooltip" style={getPositionStyle()}>
-            <SlotInfo />
+            <SlotInfo item={props.currentItem}/>
             <div className="slot-desc">
                 {/* <p className="text">A burger that will fill </p> */}
                 <div className="wrapper">
-                    <p className="text">Godnat, og kom godt igennem TORSDAG NAT. Jeg kom i tanke om, at der er 2 pakker . Så jeg laver lige en af dem, med 2 stk. i</p>
+                    <p className="text">{props.currentItem.desc}</p>
 
                 </div>
             </div>

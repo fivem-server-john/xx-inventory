@@ -1,3 +1,4 @@
+import { getImagePath } from "../../helpers/ItemImagePath";
 import { useParent } from "../context/contextMenuProvider";
 import { InventoryItem } from "./InventoryItem";
 
@@ -22,7 +23,6 @@ export const InventorySlot = (props: InventorySlotProps) => {
         return null;
     }
 
-
     function handleContextMenu(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         event.preventDefault();
 
@@ -30,7 +30,7 @@ export const InventorySlot = (props: InventorySlotProps) => {
     }
 
     function handleMouseEnter(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-        onMouseEnter(event);
+        onMouseEnter(event, props.item);
     }
 
     function handleMouseMove(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -39,6 +39,17 @@ export const InventorySlot = (props: InventorySlotProps) => {
 
     function handleMouseLeave(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         onMouseLeave(event);
+    }
+
+
+    if (props.item) {
+        return (
+            <div className="inventory-slot"  onContextMenu={handleContextMenu} onMouseEnter={handleMouseEnter} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+                <div className="amount">{props.item.amount}</div>
+                <img className="" src={getImagePath(props.item.name)}></img>
+                <div className="quality"></div>
+            </div>
+        )
     }
 
     return (

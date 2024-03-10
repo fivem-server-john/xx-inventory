@@ -12,6 +12,11 @@
     --blue3: rgb(20, 44, 82);
     --blueOutline: rgb(41, 84, 148);
 
+    --inventory-slot-item-amount-size: 1.45vh;
+    --inventory-slot-item-img-size: 8.2vh;
+    --inventory-slot-item-quality-size: 0.4vh;
+    --inventory-slot-item-quality-color: rgb(37, 91, 172);
+
     --inventory-slot-color: radial-gradient(circle, var(--dark1) 10%, #000000 200%);
     --inventory-slot-hover: radial-gradient(circle, var(--blue2) 10%, var(--blue3) 80%);
 

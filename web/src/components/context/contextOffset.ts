@@ -1,3 +1,5 @@
+import { isEnvBrowser } from "../../utils/misc";
+
 interface Offset {
     height: number;
     width: number;
@@ -22,7 +24,22 @@ const offsets: Offset[] = [
     
 ]
 
+const offsetEnv: Offset = {
+    height: 1080,
+    width: 1920,
+    top: -120,
+    left: -325
+}
+    
+    
+
+
 export function GetOffset(width: number, height: number): Offset {
+
+    if (isEnvBrowser()) {
+        return offsetEnv;
+    }
+
     let offsetToUse = offsets.find((o) => o.width === width && o.height === height);
     if (!offsetToUse) {
         offsetToUse = offsets[0];
