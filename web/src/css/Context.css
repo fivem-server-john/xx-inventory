@@ -8,14 +8,12 @@
   position: relative;
   background: var(--inventory-slot-context-action);
   width: 100%;
-  height: -moz-fit-content;
   height: fit-content;
   border-radius: 5px;
   margin-top: -5px;
 }
 .context-tooltip .slot-desc .wrapper {
   position: relative;
-  height: -moz-fit-content;
   height: fit-content;
 }
 .context-tooltip .slot-desc .wrapper .text {
@@ -36,7 +34,6 @@
 }
 .context-actions .actions {
   position: absolute;
-  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
 }

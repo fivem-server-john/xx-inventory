@@ -5,6 +5,7 @@ import { PlayerInventory } from "./player-inventory";
 import { RightInventory } from "./right-inventory";
 import { CharacterInventory } from "./character-inventory";
 import { ContextMenu } from "../context/contextMenu";
+import { Dragable } from "../dragable/dragablePreview";
 
 
 export const Inventory: React.FC = () => {
@@ -20,18 +21,19 @@ export const Inventory: React.FC = () => {
     return (
         <div className="inventory-wrapper">
             <ContextMenu>
+                <Dragable>
 
-                <CharacterInventory />
-                <PlayerInventory />
+                    <CharacterInventory />
+                    <PlayerInventory />
 
-                <div className="right-inventories">
+                    <div className="right-inventories">
 
-                    <RightInventory type = {"medium"} />
-                    
-                    <RightInventory type = {"small"} isLast = {true} />  
-                </div>
+                        <RightInventory type = {"medium"} />
+                        
+                        <RightInventory type = {"small"} isLast = {true} />  
+                    </div>
 
-
+                </Dragable>
             </ContextMenu>
         </div>
     )

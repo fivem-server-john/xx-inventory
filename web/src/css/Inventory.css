@@ -195,7 +195,6 @@
   display: inline-flex;
   margin-right: 0.6vh;
   height: 100%;
-  width: -moz-fit-content;
   width: fit-content;
   border-radius: 0.4vh;
   background: var(--inventory-slot-context-extra);

@@ -10,7 +10,7 @@ export interface ContextMenuData {
 }
 
 interface ContextMenuProps {
-    children: any[];
+    children: React.ReactNode;
 }
 
 export const ContextMenu = (props: ContextMenuProps) => {
@@ -23,6 +23,12 @@ export const ContextMenu = (props: ContextMenuProps) => {
     function handleSlotRightClicked(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         event.preventDefault();
       
+        if (actionsVisible) {
+            setActionsVisible(false);
+            setTooltipVisible(true);
+            return;
+        }
+
         let position: number[] = [event.clientX, event.clientY];
         
         setPosition({ x: position[0], y: position[1]});
@@ -35,7 +41,7 @@ export const ContextMenu = (props: ContextMenuProps) => {
         setCurrentItem(item);
     }
 
-    function handleMouseMovedInSlot(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    function handleMouseMoved(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 
         if (actionsVisible) return;
 
@@ -49,7 +55,7 @@ export const ContextMenu = (props: ContextMenuProps) => {
     }
 
     return (
-        <ContextMenuProvider value = {{onSlotRightClicked: handleSlotRightClicked, onMouseEnter: handleMouseEnteredSlot, onMouseMove: handleMouseMovedInSlot, onMouseLeave: handleMouseLeftSlot}}>
+        <ContextMenuProvider value = {{onSlotRightClicked: handleSlotRightClicked, onMouseEnter: handleMouseEnteredSlot, onMouseMove: handleMouseMoved, onMouseLeave: handleMouseLeftSlot}}>
             <ContextMenuItem showActions = {actionsVisible} tooltip = {tooltipVisible} position={position} currentItem={currentItem}/>
             {props.children}
         </ContextMenuProvider>
