@@ -6,5 +6,5 @@ export function getImagePath(name: string) {
         return '/images/' + name + '.png';
     }
 
-    return 'nui://xx-inventory/web/images/' + name + '.png';
+    return 'nui://xx-inventory/web/public/images/' + name + '.png';
 }
