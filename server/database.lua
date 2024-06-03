@@ -4,12 +4,12 @@ function Database()
     self.Init = function()
         exports.oxmysql:executeSync(
             [[
-                CREATE TABLE IF NOT EXISTS inventories_player (
+                CREATE TABLE IF NOT EXISTS inventories (
                     id INT AUTO_INCREMENT,
                     identifier VARCHAR(255) NOT NULL,
+                    type VARCHAR(255) NOT NULL,
 
-                    character_data LONGTEXT NOT NULL,
-                    data LONGTEXT NOT NULL,
+                    items LONGTEXT NOT NULL,
 
                     PRIMARY KEY (`id`),
                     KEY `identifier` (`identifier`)
@@ -17,66 +17,17 @@ function Database()
                 );
             ]]
         )
+    end
 
-        exports.oxmysql:executeSync(
-            [[
-                CREATE TABLE IF NOT EXISTS inventories_glovebox (
-                    id INT AUTO_INCREMENT,
-                    identifier VARCHAR(255) NOT NULL,
+    self.FetchInventories = function()
+        local result = exports.oxmysql:executeSync("SELECT * FROM inventories")
+       
+        if result and next(result) then
+            print("Fetched inventories from database")
+            return result
+        end
 
-                    data LONGTEXT NOT NULL,
-
-                    PRIMARY KEY (`id`),
-                    KEY `identifier` (`identifier`)
-                    
-                );
-            ]]
-        )
-
-        exports.oxmysql:executeSync(
-            [[
-                CREATE TABLE IF NOT EXISTS inventories_trunk (
-                    id INT AUTO_INCREMENT,
-                    identifier VARCHAR(255) NOT NULL,
-
-                    data LONGTEXT NOT NULL,
-
-                    PRIMARY KEY (`id`),
-                    KEY `identifier` (`identifier`)
-                    
-                );
-            ]]
-        )
-
-        exports.oxmysql:executeSync(
-            [[
-                CREATE TABLE IF NOT EXISTS inventories_stash (
-                    id INT AUTO_INCREMENT,
-                    identifier VARCHAR(255) NOT NULL,
-
-                    data LONGTEXT NOT NULL,
-
-                    PRIMARY KEY (`id`),
-                    KEY `identifier` (`identifier`)
-                    
-                );
-            ]]
-        )
-
-        exports.oxmysql:executeSync(
-            [[
-                CREATE TABLE IF NOT EXISTS inventories_container (
-                    id INT AUTO_INCREMENT,
-                    identifier VARCHAR(255) NOT NULL,
-
-                    data LONGTEXT NOT NULL,
-
-                    PRIMARY KEY (`id`),
-                    KEY `identifier` (`identifier`)
-                    
-                );
-            ]]
-        )
+        return {}
     end
 
     return self
