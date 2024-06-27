@@ -1,7 +1,5 @@
 .inventory-wrapper { //Main inventory wrapper
     position: absolute;
-    width: 125vh;
-    height: 73vh;
 
     top: 50%;
     left: 50%;
@@ -10,10 +8,10 @@
 
     .right-inventories {
         position: absolute;
-        // background-color: green;
+        background-color: green;
         
-        width: 53.9vh;
-        height: 69vh;
+        width: 42%;
+        height: 94%;
 
         right: 0vh;
         

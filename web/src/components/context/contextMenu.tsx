@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ContextMenuProvider } from "./contextMenuProvider";
-import "../../css/Context.css";
+import "./Context.scss";
 import { GetOffset } from "./contextOffset";
 import { InventoryItem } from "../inventory/InventoryItem";
 
